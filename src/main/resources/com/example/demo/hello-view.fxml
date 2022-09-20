@@ -3,72 +3,110 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
    <children>
-      <AnchorPane layoutY="3.0" prefHeight="484.0" prefWidth="664.0">
+      <FontAwesomeIcon glyphName="CLOSE" layoutX="658.0" layoutY="45.0" onMouseClicked="#close" size="40" />
+      <Text layoutX="16.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annuaire">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutX="270.0" layoutY="156.0" prefHeight="320.0" prefWidth="415.0">
+         <columns>
+            <TableColumn fx:id="setNom" prefWidth="103.75" text="nom" />
+            <TableColumn fx:id="setPrenom" prefWidth="103.75" text="prenom" />
+            <TableColumn fx:id="setAdresse" prefWidth="103.75" text="adresse" />
+            <TableColumn fx:id="edit" prefWidth="103.75" style="-fx-alignment: center;" text="NAME" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="272.0" layoutY="108.0" onDragDetected="#Supprimer" prefHeight="40.0" prefWidth="155.0">
          <children>
-            <TableView fx:id="table" layoutX="32.0" layoutY="258.0" prefHeight="212.0" prefWidth="600.0">
-               <columns>
-                  <TableColumn fx:id="setNom" prefWidth="150.0" text="nom" />
-                  <TableColumn fx:id="setPrenom" prefWidth="148.8000030517578" text="prenom" />
-                  <TableColumn fx:id="setAdresse" prefWidth="152.0" text="adresse" />
-                  <TableColumn fx:id="edit" prefWidth="150.0" />
-               </columns>
-            </TableView>
-            <Label layoutX="489.0" layoutY="147.0" prefHeight="32.0" prefWidth="55.0" text="Adresse :" />
-            <Button layoutX="498.0" layoutY="143.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer" />
-            <Label layoutX="477.0" layoutY="140.0" prefHeight="32.0" prefWidth="55.0" text="Nom :" />
-            <TextField fx:id="nom" layoutX="472.0" layoutY="150.0" />
-            <TextField fx:id="prenom" layoutX="451.0" layoutY="144.0" />
-            <Label layoutX="493.0" layoutY="134.0" prefHeight="32.0" prefWidth="55.0" text="Prénom :" />
-            <TextField fx:id="adresse" layoutX="459.0" layoutY="144.0" />
-            <Button fx:id="ajouter" layoutX="521.0" layoutY="136.0" mnemonicParsing="false" onAction="#AddRecord" text="Ajouter" />
-            <Pane layoutY="107.0" prefHeight="5.0" prefWidth="664.0" style="-fx-background-color: BLACK;" />
-            <Text layoutX="36.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annuaire">
+            <VBox alignment="CENTER" />
+            <FontAwesomeIcon fill="#00e673" glyphName="REFRESH" layoutX="10.0" layoutY="44.0" onDragDetected="#RefreshTable" size="40">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <FontAwesomeIcon fill="#455a64" glyphName="PRINT" layoutX="56.0" layoutY="44.0" size="40">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <VBox>
+               <children>
+                  <FontAwesomeIcon fill="#f20014" glyphName="TRASH" onMouseClicked="#Supprimer" size="40" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane layoutY="58.0" prefHeight="4.0" prefWidth="700.0" style="-fx-background-color: black;" />
+      <HBox alignment="CENTER_LEFT" layoutX="3.0" layoutY="191.0" prefHeight="60.0" prefWidth="250.0">
+         <opaqueInsets>
+            <Insets left="50.0" />
+         </opaqueInsets>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" wrappingWidth="93.39995574951172">
                <font>
-                  <Font name="Bauhaus 93" size="39.0" />
+                  <Font name="Century Gothic" size="22.0" />
                </font>
             </Text>
-            <HBox alignment="CENTER" layoutX="595.0" layoutY="54.71428680419922" />
-            <FontAwesomeIcon glyphName="CLOSE" layoutX="606.0" layoutY="59.0" onMouseClicked="#close" size="40" />
-            <HBox layoutX="32.0" layoutY="129.0" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <FontAwesomeIcon fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="40">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <FontAwesomeIcon fill="#00e673" glyphName="REFRESH" layoutX="10.0" layoutY="44.0" onMouseDragged="#refreshTable" size="40">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <FontAwesomeIcon fill="#455a64" glyphName="PRINT" layoutX="56.0" layoutY="44.0" onMouseDragged="#print" size="40">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
+            <TextField fx:id="nom" />
          </children>
-      </AnchorPane>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="3.0" layoutY="235.0" prefHeight="60.0" prefWidth="250.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom :" wrappingWidth="99.79998016357422">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="prenom" />
+         </children>
+         <opaqueInsets>
+            <Insets left="50.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="-6.0" layoutY="279.0" prefHeight="60.0" prefWidth="260.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :" wrappingWidth="102.99993133544922">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="adresse" />
+         </children>
+         <opaqueInsets>
+            <Insets left="50.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="67.0" layoutY="333.0" prefHeight="107.0" prefWidth="185.0">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#AddRecord" prefHeight="53.0" prefWidth="107.0" style="-fx-background-color: #00B569;" text="Ajouter" textAlignment="CENTER">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            " />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

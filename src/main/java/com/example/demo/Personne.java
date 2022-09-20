@@ -25,11 +25,19 @@ public class Personne {
         return this.prenom;
     }
 
-    public String getAdresse() { return this.adresse; }
+    public String getAdresse() {
+        return this.adresse;
+    }
 
-    public void setNom(String nom) { this.nom = nom; }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-    public void setPrenom(String prenom) { this.prenom = prenom;}
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 
-    public void setAdresse(String adresse) { this.adresse = adresse; }
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 }
